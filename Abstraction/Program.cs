@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            try
+            try // test
             {
                 double k1 = double.Parse(args[0]);
                 double l1 = double.Parse(args[1]);
