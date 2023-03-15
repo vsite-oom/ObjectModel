@@ -11,6 +11,13 @@ namespace Vsite.Oom.ObjectModel
             SetStyle(ControlStyles.UserPaint, TextLength == 0);
             Invalidate();
         }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            Invalidate();
+        }
+
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
