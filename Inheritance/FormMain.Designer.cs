@@ -33,11 +33,11 @@
             label2 = new Label();
             textBoxAddress = new TextBox();
             label3 = new Label();
-            textBoxReceiptAddress = new TextBox();
             label4 = new Label();
             textBoxShippingAddress = new TextBox();
             buttonOk = new Button();
             buttonCancel = new Button();
+            textBoxReceiptAddress = new TextBoxDefault();
             SuspendLayout();
             // 
             // label1
@@ -81,13 +81,6 @@
             label3.TabIndex = 4;
             label3.Text = "&Receipt address:";
             // 
-            // textBoxReceiptAddress
-            // 
-            textBoxReceiptAddress.Location = new Point(129, 93);
-            textBoxReceiptAddress.Name = "textBoxReceiptAddress";
-            textBoxReceiptAddress.Size = new Size(200, 23);
-            textBoxReceiptAddress.TabIndex = 5;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -126,6 +119,13 @@
             buttonCancel.UseVisualStyleBackColor = true;
             buttonCancel.Click += buttonOk_Click;
             // 
+            // textBoxReceiptAddress
+            // 
+            textBoxReceiptAddress.Location = new Point(129, 93);
+            textBoxReceiptAddress.Name = "textBoxReceiptAddress";
+            textBoxReceiptAddress.Size = new Size(200, 23);
+            textBoxReceiptAddress.TabIndex = 10;
+            // 
             // FormMain
             // 
             AcceptButton = buttonOk;
@@ -133,11 +133,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = buttonCancel;
             ClientSize = new Size(354, 235);
+            Controls.Add(textBoxReceiptAddress);
             Controls.Add(buttonCancel);
             Controls.Add(buttonOk);
             Controls.Add(textBoxShippingAddress);
             Controls.Add(label4);
-            Controls.Add(textBoxReceiptAddress);
             Controls.Add(label3);
             Controls.Add(textBoxAddress);
             Controls.Add(label2);
@@ -159,11 +159,11 @@
         private Label label2;
         private TextBox textBoxAddress;
         private Label label3;
-        private TextBox textBoxReceiptAddress;
         private Label label4;
         private TextBox textBoxShippingAddress;
         private Button buttonOk;
         private Button buttonCancel;
+        private TextBoxDefault textBoxReceiptAddress;
     }
 }
 
