@@ -1,0 +1,34 @@
+using System;
+using System.Text;
+
+namespace Vsite.Oom.ObjectModel
+{
+    internal class TextBoxDefault : TextBox
+    {
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+            SetStyle(ControlStyles.UserPaint, TextLength == 0);
+            Invalidate();
+        }
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            SetStyle(ControlStyles.UserPaint, TextLength == 0);
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            if (TextLength == 0)
+            {
+                DrawDefaultText(e.Graphics);
+            }
+        }
+
+        private void DrawDefaultText(Graphics graphics)
+        {
+            TextRenderer.DrawText(graphics, defaultText, Font, ClientRectangle, SystemColors.GrayText, TextFormatFlags.TextBoxControl);
+        }
+        private string defaultText = "default value";
+    }
+}
