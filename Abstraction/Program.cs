@@ -4,28 +4,19 @@
     {
         static void Main(string[] args)
         {
-            try
-            {
-                double k1 = double.Parse(args[0]);
-                double l1 = double.Parse(args[1]);
-                double k2 = double.Parse(args[2]);
-                double l2 = double.Parse(args[3]);
+            line l1 = new(1, 2);
+            line l2 = new(3, 4);
 
-                if (k1 == k2)
+                var res = l1.Intersection(l2);
+
+                if (res == null)
                 {
                     Console.WriteLine("Lines are parallel");
                 }
                 else
                 {
-                    double x = (l2 - l1) / (k1 - k2);
-                    double y = k1 * x + l1;
-                    Console.WriteLine($"Intersection: ({x}, {y})");
+                    Console.WriteLine($"Intersection new: ({res?.X}, {res?.Y})");
                 }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Invalid entry");
             }
         }
     }
-}
