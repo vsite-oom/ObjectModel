@@ -21,10 +21,11 @@ namespace Vsite.Oom.ObjectModel
                 DrawDefaultText(e.Graphics);
             }
         }
-        override OnTextChanged(EventArgs e)
+   
+        protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
-            if (TextLenght == 0)
+            if (TextLength == 0)
             {
                 SetStyle(ControlStyles.UserPaint,true);
                 Invalidate();   
