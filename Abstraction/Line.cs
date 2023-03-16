@@ -17,7 +17,7 @@ namespace Vsite.Oom.ObjectModel
         public Point? Intersection(Line other)
         {
 
-            if (k1 == other.K)
+            if (K == other.K)
             {
                 return null;
             

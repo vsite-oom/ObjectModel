@@ -21,7 +21,7 @@
                 }
                 else
                 {
-                    Console.WriteLine($"Intersection: {result?.X},{result?.Y})");
+                    Console.WriteLine($"Intersection:( {result?.X},{result?.Y})");
                 }
 
            //     if (k1 == k2)
