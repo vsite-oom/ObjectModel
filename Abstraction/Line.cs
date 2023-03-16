@@ -8,7 +8,7 @@ namespace Vsite.Oom.ObjectModel
 {
     internal class Line
     {
-        public Line()
+        public Line(double k,double l)
         {
             K = k;
             L = l;
@@ -20,16 +20,19 @@ namespace Vsite.Oom.ObjectModel
             if (K == other.K)
             {
                 return null;
-            
-         
-            {
-                double x = (other.L - L) / (K - other.K);
-                double y = k1 * x + l1;
-                return new Point(x, y);
             }
+
+
+
+            double x = (other.L - L) / (K - other.K);
+            double y = K * x + L;
+            return new Point(x, y);
+
+
+
         }
         public double K { get; private set; }
         public double L { get; private set; }
-       
+
     }
 }
