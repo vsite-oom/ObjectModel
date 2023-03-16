@@ -2,29 +2,42 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void main(string[] args)
         {
             try
             {
-                double k1 = double.Parse(args[0]);
-                double l1 = double.Parse(args[1]);
-                double k2 = double.Parse(args[2]);
-                double l2 = double.Parse(args[3]);
+                double k1 = double.parse(args[0]);
+                double l1 = double.parse(args[1]);
+                double k2 = double.parse(args[2]);
+                double l2 = double.parse(args[3]);
 
-                if (k1 == k2)
+                var line1 = new Line(k1, L1);
+                var line1 = new Line(k2, L2);
+
+                var result = line1.Intersection(line2);
+                if (result == null)
                 {
-                    Console.WriteLine("Lines are parallel");
+                    Console.WriteLine("Lines are parrarel");
                 }
                 else
                 {
-                    double x = (l2 - l1) / (k1 - k2);
-                    double y = k1 * x + l1;
-                    Console.WriteLine($"Intersection: ({x}, {y})");
+                    Console.WriteLine($"Intersection: {result?.X},{result?.Y})");
                 }
-            }
-            catch (Exception)
+
+           //     if (k1 == k2)
+           // {
+           //     console.writeline("lines are parallel");
+           //   }
+           //  else
+           //      {
+           //     double x = (l2 - l1) / (k1 - k2);
+           //    double y = k1 * x + l1;
+           //    console.writeline($"ıntersection: ({x}, {y})");
+           // }
+           //      }
+            catch (exception)
             {
-                Console.WriteLine("Invalid entry");
+                console.writeline("ınvalid entry");
             }
         }
     }
