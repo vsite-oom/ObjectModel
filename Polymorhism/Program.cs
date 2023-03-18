@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.Serialization;
+using System.Text;
 
 namespace Vsite.Oom.ObjectModel
 {
@@ -8,6 +9,12 @@ namespace Vsite.Oom.ObjectModel
         {
             Console.OutputEncoding = Encoding.UTF8;
 
+            Console.WriteLine(decimal"Do you want in HTML?");
+            if (Console.WriteLine() == "y" )
+            {
+                Formatter = new HTMLTextFormatter();
+            }
+            ITextFormatter formatter = new PlainTextFormater();
             StoryTeller st = new StoryTeller();
             st.WriteHeading1("Snow White and the wolf");
             st.WriteHeading2("Leaving home");
