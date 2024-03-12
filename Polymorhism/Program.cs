@@ -10,7 +10,7 @@ namespace Vsite.Oom.ObjectModel
 
             StoryTeller st = new StoryTeller();
             st.WriteHeading1("Snow White and the wolf");
-            st.WriteHeading2("Leaving home");
+            st.WriteHeading2("She's leaving home");
             st.WriteParagraph("Once upon a time, in a land far, far away...");
 
             Console.ReadKey(false);
