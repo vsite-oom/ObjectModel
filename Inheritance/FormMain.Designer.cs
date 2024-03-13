@@ -33,7 +33,7 @@
             label2 = new Label();
             textBoxAddress = new TextBox();
             label3 = new Label();
-            textBoxReceiptAddress = new TextBox();
+            textBoxReceiptAddress = new TestBoxDefault();
             label4 = new Label();
             textBoxShippingAddress = new TextBox();
             buttonOk = new Button();
