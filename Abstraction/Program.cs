@@ -11,20 +11,19 @@
                 double k2 = double.Parse(args[2]);
                 double l2 = double.Parse(args[3]);
 
-                if (k1 == k2)
+                Line line1 = new Line(k1, l1);
+                Line line2 = new Line(k2, l2);
+
+                Point? intersectionPoint = line1.GetIntersection(line2);
+                if (intersectionPoint != null)
                 {
-                    Console.WriteLine("Lines are parallel");
+                    Console.WriteLine($"Intersection point at: {intersectionPoint?.X},{intersectionPoint?.Y}");
                 }
-                else
-                {
-                    double x = (l2 - l1) / (k1 - k2);
-                    double y = k1 * x + l1;
-                    Console.WriteLine($"Intersection: ({x}, {y})");
-                }
+                else throw new Exception("Lines are parallel");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("Invalid entry");
+                Console.WriteLine(ex.Message);
             }
         }
     }
