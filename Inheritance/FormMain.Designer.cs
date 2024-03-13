@@ -33,9 +33,9 @@
             label2 = new Label();
             textBoxAddress = new TextBox();
             label3 = new Label();
-            textBoxReceiptAddress = new TextBox();
+            textBoxReceiptAddress = new TextBoxDefault();
             label4 = new Label();
-            textBoxShippingAddress = new TextBox();
+            textBoxShippingAddress = new TextBoxDefault();
             buttonOk = new Button();
             buttonCancel = new Button();
             SuspendLayout();
