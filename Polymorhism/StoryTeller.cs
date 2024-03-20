@@ -2,30 +2,61 @@
 {
     internal class StoryTeller
     {
+        internal class StoryTeller
+        {
+            public StoryTeller(bool html = false;)
+            {
+              this.html = html;  
+            }
+        }
         public void WriteParagraph(string text)
         {
-            Console.WriteLine(text);
+            if (html)
+            {
+                Console.WriteLine($"<p>{text}</p>");
+            }
+            else
+            {
+                Console.WriteLine(text);
+            }
+
+               
         }
 
         public void WriteHeading1(string caption)
         {
-            Console.WriteLine();
+            if (html)
+            {
+                Console.WriteLine($"<h1>{caption}</h1>");
+            }
+            else
+            {
+                Console.WriteLine();
 
-            ++heading1Number;
+                ++heading1Number;
 
-            caption = $"{heading1Number}. {caption}";
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('=', caption.Length));
+                caption = $"{heading1Number}. {caption}";
+                Console.WriteLine(caption);
+                Console.WriteLine(new string('=', caption.Length));
+            }
         }
 
         public void WriteHeading2(string caption)
         {
-            Console.WriteLine();
+            if(html)
+            {
+                Console.WriteLine($"<h2>{caption}</h2>");
+            }
+            else
+            {
+                Console.WriteLine();
 
-            ++heading2Number;
-            caption = $"{heading1Number}.{heading2Number}. {caption}";
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('-', caption.Length));
+                ++heading2Number;
+                caption = $"{heading1Number}.{heading2Number}. {caption}";
+                Console.WriteLine(caption);
+                Console.WriteLine(new string('-', caption.Length));
+            }
+            
         }
 
         private int heading1Number = 0;
