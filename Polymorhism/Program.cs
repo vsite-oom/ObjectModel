@@ -8,7 +8,20 @@ namespace Vsite.Oom.ObjectModel
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            StoryTeller st = new StoryTeller(true);
+            ITextFormatter tf = null;
+
+            Console.WriteLine("Do you want HTML format?");
+            string answer = Console.ReadLine();
+            if (answer == "y")
+            {
+                tf = new HtmlTextFormatter();
+            }
+            else
+            {
+                tf = new PlainTextFormat();
+            }
+
+            StoryTeller st = new StoryTeller(tf);
             st.WriteHeading1("Snow White and the Wolf");
             st.WriteHeading2("She's leaving home");
             st.WriteParagraph("Once upon a time, in a land far, far away...");
