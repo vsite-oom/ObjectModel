@@ -13,9 +13,9 @@ namespace Vsite.Oom.ObjectModel
             Console.WriteLine("Do you want in HTML format?");
             string answer = Console.ReadLine();
             if (answer.ToLower() == "y")
-                tf = new HtmlTextFormatter();
+                tf = new HtmlTextFormater();
             else
-                tf = new PlainTextFormatter();
+                tf = new PlainTextFormater();
 
             StoryTeller st = new StoryTeller(tf);
             st.WriteHeading1("Snow White and the Wolf");
