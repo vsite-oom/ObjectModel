@@ -4,58 +4,30 @@ namespace Vsite.Oom.ObjectModel
 {
     internal class StoryTeller
     {
-        public StoryTeller(bool html = false)
+        public StoryTeller(ITextFormatter textFormatter)
         {
-            this.html = html;
+            this.textFormatter = textFormatter;
         }
 
-        private readonly bool html = false;
+        private readonly ITextFormatter textFormatter;
 
         public void WriteParagraph(string text)
         {
-            if (html)
-            {
-                Console.WriteLine($"<p>{text}</p>");
-            }
-            else
-            {
-                Console.WriteLine(text);
-            }
+            textFormatter.WriteParagraph(text);
         }
 
         public void WriteHeading1(string caption)
         {
-            if(html)
-            {
-                Console.WriteLine($"<h1>{caption}</h1>");
-            }
-            else
-            {
-                Console.WriteLine();
-
-                ++heading1Number;
-
-                caption = $"{heading1Number}. {caption}";
-                Console.WriteLine(caption);
-                Console.WriteLine(new string('=', caption.Length));
-            }
+            ++heading1Number;
+            caption = $"{heading1Number}. {caption}";
+            textFormatter.WriteHeading1($"{caption}");
         }
 
         public void WriteHeading2(string caption)
         {
-            if (html)
-            {
-                Console.WriteLine($"<h2>{caption}</h2>");
-            }
-            else
-            {
-                Console.WriteLine();
-
-                ++heading2Number;
-                caption = $"{heading1Number}.{heading2Number}. {caption}";
-                Console.WriteLine(caption);
-                Console.WriteLine(new string('-', caption.Length));
-            }
+            ++heading2Number;
+            caption = $"{heading1Number}.{heading2Number}. {caption}";
+            textFormatter.WriteHeading2($"{caption}");
         }
 
         private int heading1Number = 0;
