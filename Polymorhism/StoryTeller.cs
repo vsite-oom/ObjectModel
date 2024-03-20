@@ -2,31 +2,32 @@
 {
     internal class StoryTeller
     {
+        public StoryTeller(ITextFormater textFormater)
+        {
+            this.textFormater = textFormater;
+        }
+        private readonly ITextFormater textFormater;
         public void WriteParagraph(string text)
         {
-            Console.WriteLine(text);
+            textFormater.WriteParagraph(text);
         }
 
         public void WriteHeading1(string caption)
         {
-            Console.WriteLine();
-
             ++heading1Number;
 
             caption = $"{heading1Number}. {caption}";
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('=', caption.Length));
+            textFormater.WriteHeading1(caption);
         }
 
         public void WriteHeading2(string caption)
         {
-            Console.WriteLine();
-
             ++heading2Number;
-            caption = $"{heading1Number}.{heading2Number}. {caption}";
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('-', caption.Length));
+
+            caption = $"{heading1Number}.{heading2Number} {caption}";
+            textFormater.WriteHeading2(caption);
         }
+
 
         private int heading1Number = 0;
         private int heading2Number = 0;
