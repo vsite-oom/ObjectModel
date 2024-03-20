@@ -2,53 +2,32 @@
 {
     internal class StoryTeller
     {
-        public void WriteParagraph(string text, bool html)
+        public StoryTeller(ITextFormated textFormated)
         {
-            if (html)
-            {
-                Console.WriteLine($"<p>{text}</p>");
-            }
-            else
-            {
-                Console.WriteLine(text);
-            }
+            this.textFormated = textFormated;
         }
 
-        public void WriteHeading1(string caption, bool html)
+        private ITextFormated textFormated;
+        public void WriteParagraph(string text)
         {
-            if (html)
-            {
-                Console.WriteLine($"<h1>{caption}</h1>");
+            textFormated.WriteParagraph(text);
+        }
 
-            }
-            else
-            {
-                Console.WriteLine();
+        public void WriteHeading1(string caption)
+        {
+            ++heading1Number;
 
-                ++heading1Number;
-
-                caption = $"{heading1Number}. {caption}";
-                Console.WriteLine(caption);
-                Console.WriteLine(new string('=', caption.Length));
-            }
+            caption = $"{heading1Number}. {caption}";
+            textFormated.WriteHeading1(caption);
 
         }
 
-        public void WriteHeading2(string caption, bool html)
+        public void WriteHeading2(string caption)
         {
-            if (html)
-            {
-                Console.WriteLine($"<h2>{caption}</h2>");
-            }
-            else
-            {
-                Console.WriteLine();
+            ++heading2Number;
 
-                ++heading2Number;
-                caption = $"{heading1Number}.{heading2Number}. {caption}";
-                Console.WriteLine(caption);
-                Console.WriteLine(new string('-', caption.Length));
-            }
+            caption = $"{heading1Number}.{heading2Number}.{caption}";
+            textFormated.WriteHeading2(caption);
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vsite.Oom.ObjectModel
 {
-    internal interface Interface1
+    internal interface ITextFormated
     {
         void WriteParagraph(string text);
         void WriteHeading1(string caption);
