@@ -2,9 +2,20 @@
 {
     internal class StoryTeller
     {
+        private readonly bool html;
+        public StoryTeller(bool html = false)
+        {
+            this.html = html;
+        }
+
+        private int heading1Number = 0;
+        private int heading2Number = 0;
+
         public void WriteParagraph(string text)
         {
-            Console.WriteLine(text);
+            if(html)
+                Console.WriteLine($"<p>{text}</p>");
+            else Console.WriteLine(text);
         }
 
         public void WriteHeading1(string caption)
@@ -14,8 +25,16 @@
             ++heading1Number;
 
             caption = $"{heading1Number}. {caption}";
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('=', caption.Length));
+            if (!html)
+            {
+                Console.WriteLine(caption);
+                Console.WriteLine(new string('=', caption.Length));
+            }
+            else
+            {
+                Console.WriteLine("<h1>" + caption + "</h1>");
+            }
+
         }
 
         public void WriteHeading2(string caption)
@@ -24,11 +43,18 @@
 
             ++heading2Number;
             caption = $"{heading1Number}.{heading2Number}. {caption}";
-            Console.WriteLine(caption);
-            Console.WriteLine(new string('-', caption.Length));
+            if (!html)
+            {
+                Console.WriteLine(caption);
+                Console.WriteLine(new string('-', caption.Length));
+            }
+            else
+            {
+                Console.WriteLine("<h2>" + caption + "</h2>");
+            }
+            
         }
 
-        private int heading1Number = 0;
-        private int heading2Number = 0;
+
     }
 }
