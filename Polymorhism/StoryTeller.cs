@@ -4,52 +4,30 @@ namespace Vsite.Oom.ObjectModel
 {
     internal class StoryTeller
     {
-        public bool html = false;
-        public StoryTeller(bool html) {
-            this.html = html;
+        private readonly ITextFormatter textFormatter;
+        public StoryTeller(ITextFormatter textFormatter)
+        {
+            this.textFormatter = textFormatter;
         }
-        public StoryTeller() {}
+
+        public StoryTeller() { }
         public void WriteParagraph(string text)
         {
-            if (html)
-            {
-                Console.WriteLine($"<p>{text}</p>");
-            }
-            Console.WriteLine(text);
+            textFormatter.WriteParagraph(text);
         }
 
         public void WriteHeading1(string caption)
         {
-            if (html)
-            {
-                Console.WriteLine($"<h1>{caption}</h1>");
-            }
-            else
-            {
-                Console.WriteLine();
-
-                ++heading1Number;
-
-                caption = $"{heading1Number}. {caption}";
-                Console.WriteLine(caption);
-                Console.WriteLine(new string('=', caption.Length));
-            }
+            ++heading1Number;
+            caption = $"{heading1Number}. {caption}";
+            textFormatter.WriteHeading1(caption);
         }
 
         public void WriteHeading2(string caption)
         {
-            if (html)
-            {
-                Console.WriteLine($"<h2>{caption}</h2>");
-            }
-            else
-            {
-                Console.WriteLine();
-                ++heading2Number;
-                caption = $"{heading1Number}.{heading2Number}. {caption}";
-                Console.WriteLine(caption);
-                Console.WriteLine(new string('-', caption.Length));
-            }
+            ++heading2Number;
+            caption = $"{heading1Number}.{heading2Number}. {caption}";
+            textFormatter.WriteHeading2(caption);
         }
 
         private int heading1Number = 0;
